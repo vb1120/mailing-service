@@ -1,0 +1,29 @@
+{
+    "name": "mailing-service",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev:build": "tsc -w",
+        "dev:run": "nodemon dist/server.js",
+        "dev": "concurrently npm:dev:*",
+        "start:build": "rimraf dist && tsc",
+        "start:run": "node dist/server.js",
+        "start": "npm:start:*"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "amqplib": "^0.10.0",
+        "express": "^4.18.1",
+        "rimraf": "^3.0.2",
+        "typescript": "^4.7.4"
+    },
+    "devDependencies": {
+        "@types/amqplib": "^0.8.2",
+        "@types/node": "^18.0.3",
+        "concurrently": "^7.2.2",
+        "nodemon": "^2.0.19"
+    }
+}
