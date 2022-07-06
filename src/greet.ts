@@ -1,18 +1,16 @@
-import { createTransport, createTestAccount } from 'nodemailer'
+import { createTransport } from 'nodemailer'
 
-export const greet = async (userInfo: { email: string; name?: string }) => {
+export const greet = (userInfo: { email: string; name?: string }) => {
     const { email, name } = userInfo
     // Generate test account
-    const testAccount = await createTestAccount()
 
     // create reusable transporter object using the default SMTP transport
     let transporter = createTransport({
-        host: 'smtp.ethereal.email',
+        host: 'smtp.gmail.com',
         port: 587,
-        secure: false,
         auth: {
-            user: testAccount.user,
-            pass: testAccount.pass
+            user: 'test@gmail.com',
+            pass: 'password'
         }
     })
 
@@ -29,7 +27,7 @@ export const greet = async (userInfo: { email: string; name?: string }) => {
         if (err) {
             console.log(err.message)
         } else {
-            console.log('Message sent: %s', data.messageId)
+            console.log('Message sent')
         }
     })
 }
